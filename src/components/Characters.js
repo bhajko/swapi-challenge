@@ -19,7 +19,7 @@ export const Characters = () => {
 
   useEffect(() => {
     getData();
-  }, [getData]);
+  }, []);
 
   useEffect(() => {
     handleSort(sort);
