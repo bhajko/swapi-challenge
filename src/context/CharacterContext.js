@@ -52,12 +52,52 @@ export const CharacterContextProvider = ({ children }) => {
     }
   };
 
+  const handleSort = (sort) => {
+    switch (sort) {
+      case 'A-Z':
+        setCharacterData({
+          ...characterData,
+          characters: characterData.characters.sort((a, b) =>
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+          ),
+        });
+        break;
+      case 'Z-A':
+        setCharacterData({
+          ...characterData,
+          characters: characterData.characters.sort((a, b) =>
+            b.name.toLowerCase().localeCompare(a.name.toLowerCase())
+          ),
+        });
+        break;
+      case 'Male':
+        setCharacterData({
+          ...characterData,
+          characters: characterData.characters.sort((a, b) =>
+            b.gender.toLowerCase().localeCompare(a.gender.toLowerCase())
+          ),
+        });
+        break;
+      case 'Female':
+        setCharacterData({
+          ...characterData,
+          characters: characterData.characters.sort((a, b) =>
+            a.gender.toLowerCase().localeCompare(b.gender.toLowerCase())
+          ),
+        });
+        break;
+      default:
+        console.error('this sort is not supported');
+    }
+  };
+
   const value = {
     characterData,
     loading,
     getData,
     getSingleData,
     loadMore,
+    handleSort,
   };
 
   return (
