@@ -1,15 +1,15 @@
 import { Header } from './components/Header';
-import { useCharacters } from './hooks/useCharacters';
 import { Characters } from './components/Characters';
+import { CharacterContextProvider } from './context/CharacterContext';
+import { Search } from './components/Search';
 
 function App() {
-  const { characterData, loading } = useCharacters();
-
   return (
-    <>
+    <CharacterContextProvider>
       <Header />
-      <Characters characterData={characterData} loading={loading} />
-    </>
+      <Search />
+      <Characters />
+    </CharacterContextProvider>
   );
 }
 

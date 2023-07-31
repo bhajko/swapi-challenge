@@ -1,5 +1,5 @@
-export const fetchAllCharacters = async () => {
-  const endpoint = 'https://swapi.dev/api/people/';
+export const fetchAllCharacters = async (nextUrl) => {
+  const endpoint = nextUrl ?? 'https://swapi.dev/api/people/';
   const data = await (await fetch(endpoint)).json();
   return data;
 };
